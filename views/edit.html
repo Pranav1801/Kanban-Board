@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet" href="/css/edit.css" >
+</head>
+
+<body>
+    <div class="header">
+        <label>Kanban Board</label>
+        <label onclick="location.href='../index.html'">Home</label>
+    </div>
+
+    <div class="container">
+        <label id="edit-text"><b>Edit Task</b></label>
+        <label>Title</label>
+        <input id="title" type="text" placeholder="Hello Task">
+        <label>Description</label>
+        <textarea id="desc" type="text">me here</textarea>
+        <label>Tags</label>
+        <input>
+        <div>
+            <button id="create" onclick="editTask()">Edit</button>
+        </div>
+    </div>
+</body>
+
+<script src="/js/edit.js"></script>
+</html>

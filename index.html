@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/css/index.css" >
+</head>
+
+<body>
+    <div class="header">
+        <label>Kanban Board</label>
+        <button onclick="location.href='/views/create.html'">Create</button>
+    </div>
+
+    <div class="container">
+        <label id="todo">Todo</label>
+        <label id="in-progress">In Progress</label>
+        <label id="done">Done</label>
+    </div>
+
+    <div class="tasks">
+        <div id="todo-tasks"></div>
+        <div id="in-progress-tasks"></div>
+        <div id="done-tasks"></div>
+        <!-- <label class="empty-state">No task present</label>
+        <label class="empty-state">No task present</label>
+        <label class="empty-state">No task present</label> -->
+    </div>
+</body>
+
+<script src="/js/index.js"></script>
+</html>

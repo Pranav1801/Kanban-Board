@@ -1,0 +1,127 @@
+body{
+    background-color: #292929;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    color: white;
+    font-size: large;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    align-content: space-between;
+    color: white;
+    height: 500px;
+}
+
+#create-text{
+    margin-top: 10px;
+    text-decoration: underline;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+/* input{
+    border-radius: 5px;
+    padding: 10px 24px;
+    border: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #4A4A4A;
+    color: white;
+    width: 40%;
+} */
+
+#title{
+    border-radius: 5px;
+    padding: 10px 24px;
+    border: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #4A4A4A;
+    color: white;
+    width: 40%;
+    height: 5%;
+	outline: none;
+}
+
+#desc{
+    border-radius: 5px;
+    padding: 10px 24px;
+    border: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #4A4A4A;
+    color: white;
+    height: 40%;
+    width: 40%;
+    resize: none;
+	outline: none;
+}
+
+button{
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px 24px;
+    margin-right: 10px;
+    border: 0px;
+    width: 10%;
+}
+
+#create{
+    border: 3px solid green;
+    background-color: green;
+    color: white;
+}
+
+#create-and-view{
+    
+    background-color: #292929;
+    color: purple;
+    border: 3px solid purple;
+}
+
+
+/* .chips{
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 20px;
+    display: block;
+    width: 400px;
+    max-width: 100%;
+    input{
+      border: none;
+      appearance: none;
+    }
+  } */
+
+/* .chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.closebtn {
+    padding-left: 10px;
+    color: #888;
+    font-weight: bold;
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .closebtn:hover {
+    color: #000;
+  } */

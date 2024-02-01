@@ -1,0 +1,72 @@
+body{
+    background-color: #292929;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px;
+    color: white;
+    font-size: large;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+}
+
+#todo,#in-progress,#done{
+    color: white;
+    width: 30%;
+    font-size: 25px;
+}
+
+button{
+    border-radius: 10px;
+    padding: 10px 24px;
+    background-color: green;
+    color: white;
+    border: 0px;
+}
+
+.tasks{
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.empty-state{
+    margin: auto;
+    color: white;
+    width: 100%;
+    border: 3px gray;
+    border-style: dashed;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#todo-tasks, #in-progress-tasks, #done-tasks{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: auto;
+    width: 30%;
+}
+
+.card{
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #4A4A4A;
+    border-radius: 5px;
+    color: white;
+}
+
+/* .card label{
+    font-size: 30px;
+} */

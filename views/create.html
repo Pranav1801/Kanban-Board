@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <link rel="stylesheet" href="/css/create.css" >
+    <link rel="stylesheet" href="/css/chips.css" >
+</head>
+
+<body>
+    <div class="header">
+        <label>Kanban Board</label>
+        <label onclick="location.href='../index.html'">Home</label>
+    </div>
+
+    <div class="container" id="form">
+        <label id="create-text"><b>Create Task</b></label>
+        <label>Title</label>
+        <input id="title" type="text" placeholder="Hello Task">
+        <label>Description</label>
+        <textarea id="desc" type="text">me here</textarea>
+        <label>Tags</label>
+
+
+        <div class="chips-field">
+            <div class="chips">
+            </div>
+            <input placeholder="Enter something here" class="chip-input" />
+        </div>
+
+
+        <!-- <label for="chips-input" class="chips">
+            <span>Chip x</span>
+            <span>Chip x</span>
+            <span>Chip x</span>
+            <span>Chip x</span>
+            <input type="text" id="chips-input">
+        </label> -->
+
+
+        <!-- <ul id="chips"></ul>
+        <input id="input" type="text" /> -->
+
+
+        <!-- <div class="chip">
+            <input placeholder="Enter something here" autofocus autocomplete="off" class="chip-input" />
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+        </div> -->
+
+
+
+        <div>
+            <button id="create" onclick="createTask()">Create</button>
+            <button id="create-and-view" onclick="createAndViewTask()">Create & View</button>
+        </div>
+    </div>
+</body> 
+
+<script src="/js/create.js"></script>
+<script src="/js/chips.js"></script>
+</html>
