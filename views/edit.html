@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit</title>
     <link rel="stylesheet" href="/css/edit.css" >
+    <link rel="stylesheet" href="/css/chips.css" >
 </head>
 
 <body>
@@ -20,12 +21,19 @@
         <label>Description</label>
         <textarea id="desc" type="text">me here</textarea>
         <label>Tags</label>
-        <input>
+
+        <div class="chips-field">
+            <div class="chips" id="chips"></div>
+            <input placeholder="Enter Your Tags here" class="chip-input" />
+        </div>
+
         <div>
             <button id="create" onclick="editTask()">Edit</button>
         </div>
     </div>
 </body>
 
+<script src="/js/chips.js"></script>
 <script src="/js/edit.js"></script>
+
 </html>
