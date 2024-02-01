@@ -1,18 +1,3 @@
-/* .form-field{
-	width: 40%;
-	height: auto;
-	min-height: 34px;
-	border: 2px solid red;
-	cursor: text;
-	border-radius: 5px;
-    padding: 10px 24px;
-    border: 0px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: #4A4A4A;
-} */
-
-
 .chips-field{
     display: flex;
     flex-direction: row;
@@ -29,7 +14,6 @@
     min-height: 34px;
 }
 
-
 .chip-input	{
     border-radius: 5px;
     padding: 10px 24px;
@@ -44,9 +28,7 @@
 	outline: none;
 }
 
-
 .chips .chip {
-	/* display: inline-block; */
 	justify-content: flex-start;
 	width: auto;
 	height: auto;
@@ -58,32 +40,20 @@
 }
 
 .chips .chip{
-  float: left;
+  	float: left;
 }
 
 .chips .chip .chip--button {
-  padding: 8px;
-  cursor: pointer;
-  background-color: #A4A4A4;
-  display: inline-block;
-  color: red;
+	padding: 8px;
+	cursor: pointer;
+	background-color: #A4A4A4;
+	display: inline-block;
+	color: red;
 }
 
 .chips .chip .chip--text {
-  padding: 8px;
-  cursor: no;
-  display: inline-block;
-  pointer-events: none
+	padding: 8px;
+	cursor: no;
+	display: inline-block;
+	pointer-events: none
 }
-
-/* .form-field > input{
-  padding: 15px;
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 34px;
-  border: none;
-  margin: 5px 0 0;
-  display: inline-block;
-  background-color: transparent;
-} */
