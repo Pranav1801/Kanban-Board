@@ -1,11 +1,8 @@
-window.onload = () => addChip();
-
 const addChip = () => {
 	var input = document.querySelector(".chip-input");
 	input.addEventListener('keypress', (e) => {
 		if(e.which == 13){
 			createChip(e.target.value);
-			console.log('kjabbkwa', e.target.value)
 			e.target.value = "";
 		}
 	})
@@ -35,9 +32,15 @@ const createChip = (inputValue) => {
 	chip.appendChild(chip_text);
 	chip.appendChild(chip_button);
 	chips.appendChild(chip);
-
 }
 
-function chipClickHandler(event){
+const chipClickHandler = (event) => {
 	chips.removeChild(event.currentTarget);
+}
+
+const removeChips = () =>{
+	const myNode = document.getElementById("chips");
+	while (myNode.firstChild) {
+		myNode.removeChild(myNode.lastChild);
+	}
 }

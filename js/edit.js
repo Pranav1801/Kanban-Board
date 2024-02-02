@@ -5,6 +5,11 @@ const tasksJSON = localStorage.getItem('tasks_json');
 
 const urlParam = new URL(window.location.href).searchParams.get('timestamp');
 
+window.onload = () => {
+    fetchTask();
+    addChip();
+}
+
 const fetchTask = () => {
     JSON.parse(tasksJSON).forEach(task =>{
         if(urlParam == task.created){
@@ -39,11 +44,4 @@ const fetchTags = () => {
         tagsArray.push(element.innerHTML);
     })
     return tagsArray;
-}
-
-
-
-window.onload = () => {
-    fetchTask();
-    addChip();
 }

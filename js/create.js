@@ -4,13 +4,15 @@ const description = document.getElementById("desc");
 const create = document.getElementById("create");
 const create_and_view = document.getElementById("create-and-view");
 
+window.onload = addChip();
+
 const validation = () =>{}
 
 const createTask = () =>{
     checkTaskJson();
-    // location.reload();
-    // document.forms['form'].reset();
-    // title.innerHTML = ""
+    title.value = "";
+    description.value = "";
+    removeChips();
 }
 
 const createAndViewTask = () =>{
