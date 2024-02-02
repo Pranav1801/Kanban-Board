@@ -1,4 +1,4 @@
-window.onload = fetchTasks();
+window.onload = () => fetchTasks();
 
 const fetchTasks = () =>{
     const tasksJSON = localStorage.getItem('tasks_json');
