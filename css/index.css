@@ -22,7 +22,7 @@ body{
 
 #todo,#in-progress,#done{
     color: white;
-    width: 30%;
+    width: 32%;
     font-size: 25px;
 }
 
@@ -56,17 +56,16 @@ button{
     flex-direction: column;
     justify-content: start;
     height: auto;
-    width: 30%;
+    width: 32%;
 }
 
 .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #4A4A4A;
     border-radius: 5px;
     color: white;
 }
-
-/* .card label{
-    font-size: 30px;
-} */
