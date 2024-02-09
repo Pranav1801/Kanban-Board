@@ -35,7 +35,7 @@ const editTask = () =>{
         }
     }
     localStorage.setItem('tasks_json', JSON.stringify(tasks));
-    location.reload();
+    location.href = "../index.html";
 }
 
 const fetchTags = () => {
