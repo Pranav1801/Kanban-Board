@@ -25,6 +25,7 @@ const checkTaskJson = () =>{
     const tasks = tasksJSON ? JSON.parse(tasksJSON) : [];
     const timestamp = Date.now();
     let temp = {
+        id: tasks.length + 1,
         todo: title.value,
         description: description.value,
         tags: fetchTags(),
