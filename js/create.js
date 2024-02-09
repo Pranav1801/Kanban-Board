@@ -4,23 +4,35 @@ const description = document.getElementById("desc");
 const create = document.getElementById("create");
 const create_and_view = document.getElementById("create-and-view");
 
-window.onload = addChip();
+// window.onload = addChip();
 
-const validation = () =>{}
+const validation = () =>{
+    const tags = document.querySelector(".tags");
+    if(title.value == "" || description.value == "" || tags == null) {
+        alert("Empty")
+        return false
+    }
+    else return true;
+}
 
 const createTask = () =>{
-    checkTaskJson();
-    title.value = "";
-    description.value = "";
-    removeChips();
+    if(validation()){
+        createTaskJson();
+        title.value = "";
+        description.value = "";
+        // removeChips();
+        removeTags();
+    }
 }
 
 const createAndViewTask = () =>{
-    checkTaskJson();
-    location.href = "../index.html";
+    if(validation()){
+        createTaskJson();
+        location.href = "../index.html";
+    }
 }
 
-const checkTaskJson = () =>{
+const createTaskJson = () =>{
     const tasksJSON = localStorage.getItem('tasks_json');
     const tasks = tasksJSON ? JSON.parse(tasksJSON) : [];
     const timestamp = Date.now();
