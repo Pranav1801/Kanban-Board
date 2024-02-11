@@ -4,10 +4,11 @@ const description = document.getElementById("desc");
 const create = document.getElementById("create");
 const create_and_view = document.getElementById("create-and-view");
 
-// window.onload = addChip();
+window.onload = addChip();
 
 const validation = () =>{
-    const tags = document.querySelector(".tags");
+    const tags = document.querySelector(".chips");
+    // const tags = document.querySelector(".tags");
     if(title.value == "" || description.value == "" || tags == null) {
         alert("Empty")
         return false
@@ -20,8 +21,8 @@ const createTask = () =>{
         createTaskJson();
         title.value = "";
         description.value = "";
-        // removeChips();
-        removeTags();
+        removeChips();
+        // removeTags();
     }
 }
 
@@ -51,8 +52,11 @@ const createTaskJson = () =>{
 
 const fetchTags = () => {
     var tagsArray = [];
-    document.getElementById("chips").querySelectorAll('.chip--text').forEach(element => {
-        tagsArray.push(element.innerHTML);
+    // document.querySelector(".tags").querySelectorAll('.chip-title').forEach(element => {
+    //     tagsArray.push(element.textContent);
+    // })
+    document.querySelector(".chips").querySelectorAll('.chip--text').forEach(element => {
+        tagsArray.push(element.textContent);
     })
     return tagsArray;
 }

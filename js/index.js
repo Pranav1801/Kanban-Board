@@ -24,13 +24,10 @@ const fetchTasks = () =>{
             card.classList.add('card');
             card.id = task.id;
             card.draggable = true;
+
             // attach the dragstart event handler
             card.addEventListener('dragstart', dragStart);
-            tempTime = task.created;
-            // card.ondragstart = dragStart(this);
-
-
-
+            // tempTime = task.created;
 
             const titleDiv = document.createElement('div');
             titleDiv.style.display = "flex";
@@ -63,6 +60,7 @@ const fetchTasks = () =>{
             descLink.innerHTML = " Read More";
             descLink.href = "/views/edit.html?timestamp=" + task.created;
             descLink.style.color = "blue"
+            descLink.style.textDecoration = "none";
 
             desc.appendChild(descLink);
 
@@ -74,12 +72,13 @@ const fetchTasks = () =>{
 
             const time = new Date(task.created);
             const createTime = document.createElement('label');
-            createTime.innerHTML = "Created At: " + time.toLocaleDateString() + " " + time.toLocaleTimeString();
+            createTime.textContent = "Created At: " + time.toLocaleDateString() + " " + time.toLocaleTimeString();
             createTime.style.fontSize = "15px";
 
             const update = new Date(task.updated);
+            console.log(update);
             const updateTime = document.createElement('label');
-            updateTime.innerHTML = "Updated At: " + update.toLocaleDateString() + " " + update.toLocaleTimeString();
+            updateTime.textContent = "Updated At: " + update.toLocaleDateString() + " " + update.toLocaleTimeString();
             updateTime.style.fontSize = "15px";
 
             titleDiv.appendChild(title);
@@ -102,6 +101,7 @@ const fetchTasks = () =>{
                 card.style.backgroundColor = "#584666";
                 inProgressTasks.appendChild(card);
                 titleDiv.removeChild(editIcon);
+                // card.addEventListener('dragstart', dragStart);
             } else if(task.status == "Done") {
                 card.style.backgroundColor = "#4E6646";
                 doneTasks.appendChild(card)
@@ -159,6 +159,8 @@ function dragStart(e) {
   
 
 const boxes = document.querySelectorAll('.dropzone');
+// const tasksInProgressContainer = document.querySelector('#in-progress-tasks');
+// const tasksDoneContainer = document.querySelector('#done-tasks');
 
 boxes.forEach(box => {
     box.addEventListener('dragenter', dragEnter)
@@ -169,11 +171,11 @@ boxes.forEach(box => {
 
 
 function dragEnter(e) {
-  e.preventDefault();
+    e.preventDefault();
 }
 
 function dragOver(e) {
-  e.preventDefault();
+    e.preventDefault();
 }
 
 function dragLeave(e) {
@@ -181,53 +183,61 @@ function dragLeave(e) {
 }
 
 function drop(e) {
-  // get the draggable element
-  const id = e.dataTransfer.getData('text/plain');
-  const draggable = document.getElementById(id);
-  const dropzone = e.target;
-  dropzone.append(draggable);
+    // get the draggable element
+    const id = e.dataTransfer.getData('text/plain');
+    const draggable = document.getElementById(id);
+    const dropzone = e.target;
+    dropzone.append(draggable);
 
-  console.log("fskms", id);
-//   console.log("fskms", e);
-  console.log("dfgbhnjmdcfvgbhnj", draggable);
-//   console.log("dfgbhnjmdcfvgbhnj", tempTime);
-//   console.log("fskms", e.target.id);
-  // add it to the drop target
-  // e.target.append(draggable);
+    console.log("dfgbhnjmdcfvgbhnj", draggable);
+    // add it to the drop target
+    // e.target.append(draggable);
 
-  changeColor(dropzone.id, id);
-  updateStatus(dropzone.id, id);
+    updateStatus(dropzone.id, id);
+    changeColor(dropzone.id, id);
 }
-
-
 
 const changeColor = (dropedtasktag, dropedtaskid) => {
     const card = document.getElementById(dropedtaskid);
-    console.log("card", card);
-    if(dropedtasktag == "in-progress-tasks") {
+    const titleDiv = card.querySelector('div');
+    // if(titleDiv.querySelector('img')) titleDiv.removeChild(titleDiv.querySelector('img'));
+    if(dropedtasktag == "todo-tasks"){
+        card.style.backgroundColor = "#4A4A4A"; 
+        const editIcon = document.createElement('img');
+        editIcon.src = '/assets/edit_icon.svg';
+        titleDiv.appendChild(editIcon);
+    }
+    else if(dropedtasktag == "in-progress-tasks") {
         card.style.backgroundColor = "#584666";
+        titleDiv.removeChild(titleDiv.querySelector('img'));
     }
     else if(dropedtasktag == "done-tasks") {
         card.style.backgroundColor = "#4E6646";
+        titleDiv.removeChild(titleDiv.querySelector('img'));
     }
 }
 
 const updateStatus = (dropedtasktag, dropedtaskid) =>{
+    const timestamp = Date.now();
     var tasks = JSON.parse(tasksJSON);
     for (var i = 0; i < tasks.length; i++) {
-            if(dropedtaskid === tasks[i].id){
-                if(dropedtasktag == "in-progress-tasks"){
-                    tasks[i].status = "In Progress";
-                    break;  
-                }
-                else if(dropedtasktag == "done-tasks"){
-
-                    tasks[i].status = "Done";
-                    break;  
-                }
+        tasks[i].updated =  timestamp;
+        if(parseInt(dropedtaskid) === tasks[i].id){
+            if(dropedtasktag == "todo-tasks"){
+                tasks[i].status = "Todo";
+                break;  
             }
+            else if(dropedtasktag == "in-progress-tasks"){
+                tasks[i].status = "In Progress";
+                break;  
+            }
+            else if(dropedtasktag == "done-tasks"){
+                tasks[i].status = "Done";
+                break;  
+            }
+        }
         console.log("tasks", tasks);
     }
-  localStorage.setItem('tasks_json', JSON.stringify(tasks));
-  location.reload();
-}
+    localStorage.setItem('tasks_json', JSON.stringify(tasks));
+    // location.reload();
+} 

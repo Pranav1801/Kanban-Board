@@ -16,11 +16,11 @@ const createChip = (inputValue) => {
 
 	var chip_text = document.createElement('span');
 	chip_text.classList.add('chip--text');
-	chip_text.innerHTML = inputValue;
+	chip_text.textContent = inputValue;
 
 	var chip_button = document.createElement('span');
 	chip_button.classList.add('chip--button');
-	chip_button.innerHTML = 'X';
+	chip_button.textContent = 'X';
 
 	var deleteIcon = document.createElement('img');
 	deleteIcon.src = '/assets/cross_icon.svg';

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create</title>
     <link rel="stylesheet" href="/css/create.css" >
+    <!-- <link rel="stylesheet" href="/css/chips_new.css" > -->
     <link rel="stylesheet" href="/css/chips.css" >
 </head>
 
@@ -27,6 +28,20 @@
             <input placeholder="Enter Your Tags here" class="chip-input" />
         </div>
 
+        <!-- <section class="field">  
+            <label>Input tags <small>(seperated by comma ',')</small></label>
+            <div class="tags">
+                <input type="text" class="tags-input" />
+            </div>
+        </section>
+          
+        <template id="chip-template">
+            <div class="chip">
+                <span class="chip-title"></span>
+                <span id="delete">&times;</span>
+            </div>
+        </template> -->
+
         <div>
             <button id="create" onclick="createTask()">Create</button>
             <button id="create-and-view" onclick="createAndViewTask()">Create & View</button>
@@ -34,6 +49,7 @@
     </div>
 </body>
 
+<!-- <script src="/js/chips_new.js"></script> -->
 <script src="/js/chips.js"></script>
 <script src="/js/create.js"></script>
 </html>
