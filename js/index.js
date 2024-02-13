@@ -35,6 +35,11 @@ const fetchTasks = () =>{
             titleDiv.style.justifyContent = "space-between";
             titleDiv.style.paddingBottom = '10px';
 
+            const titleId = document.createElement('label');
+            titleId.textContent = "# " + task.id;
+            titleId.style.fontSize = "20px";
+            titleId.style.fontWeight = 'bold';
+
             const title = document.createElement('label');
             title.innerHTML = task.todo;
             title.style.fontSize = "20px";
@@ -54,15 +59,30 @@ const fetchTasks = () =>{
                 })
             }
 
-            const desc = document.createElement('label');
-            desc.innerHTML = task.description.slice(0,30) + "...";
-            const descLink = document.createElement('a');
-            descLink.innerHTML = " Read More";
-            descLink.href = "/views/edit.html?timestamp=" + task.created;
-            descLink.style.color = "blue"
+            const desc = document.createElement('span');
+            desc.innerHTML = task.description.slice(0,30);
+            const descLink = document.createElement('span');
+            descLink.innerHTML = "...Read More";
+            // descLink.href = "/views/edit.html?timestamp=" + task.created;
+            descLink.style.color = "#6C7EDF"
             descLink.style.textDecoration = "none";
 
-            desc.appendChild(descLink);
+            task.description.length > 30 ? desc.appendChild(descLink) : "";
+
+            descLink.addEventListener('click', (e)=>{
+                var text = e.target.textContent;
+                console.log("dvkwavb", text);
+                if(text == "...Read More"){
+                    desc.textContent = task.description;
+                    e.target.textContent = "...Read Less";
+                    desc.appendChild(descLink);
+                }
+                else{
+                    e.target.textContent = "...Read More";
+                    desc.innerHTML = task.description.slice(0,30);
+                    desc.appendChild(descLink);
+                }
+            })
 
             const footerDiv = document.createElement('div');
             footerDiv.style.display = "flex";
@@ -81,6 +101,7 @@ const fetchTasks = () =>{
             updateTime.textContent = "Updated At: " + update.toLocaleDateString() + " " + update.toLocaleTimeString();
             updateTime.style.fontSize = "15px";
 
+            titleDiv.appendChild(titleId);
             titleDiv.appendChild(title);
             titleDiv.appendChild(editIcon);
 
@@ -116,6 +137,8 @@ const fetchTasks = () =>{
     }
 }
 
+const expandDescription = () =>{}
+
 const getTags = (inputValue) => {
     var chip = document.createElement('div');
     chip.classList.add('chip');
@@ -131,7 +154,7 @@ const getTags = (inputValue) => {
     chip_button.innerHTML = 'X';
     
     chip.appendChild(chip_text);
-    generateRandomColor();
+    // generateRandomColor();
     return chip;
 }
 
